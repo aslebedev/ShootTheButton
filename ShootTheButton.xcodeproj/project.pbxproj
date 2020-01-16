@@ -14,6 +14,11 @@
 		116B514A23D02AF20021C41E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 116B514823D02AF20021C41E /* Main.storyboard */; };
 		116B514C23D02AF30021C41E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 116B514B23D02AF30021C41E /* Assets.xcassets */; };
 		116B514F23D02AF30021C41E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 116B514D23D02AF30021C41E /* LaunchScreen.storyboard */; };
+		116B515E23D031C10021C41E /* background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 116B515D23D031C10021C41E /* background@2x.png */; };
+		116B516423D0375A0021C41E /* player@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 116B516323D0375A0021C41E /* player@2x.png */; };
+		116B516923D050510021C41E /* square@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 116B516823D050510021C41E /* square@2x.png */; };
+		116B516B23D0505C0021C41E /* quick@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 116B516A23D0505C0021C41E /* quick@2x.png */; };
+		116B516D23D053B50021C41E /* bullet@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 116B516C23D053B50021C41E /* bullet@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +31,11 @@
 		116B514B23D02AF30021C41E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		116B514E23D02AF30021C41E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		116B515023D02AF30021C41E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		116B515D23D031C10021C41E /* background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background@2x.png"; sourceTree = "<group>"; };
+		116B516323D0375A0021C41E /* player@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "player@2x.png"; sourceTree = "<group>"; };
+		116B516823D050510021C41E /* square@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "square@2x.png"; sourceTree = "<group>"; };
+		116B516A23D0505C0021C41E /* quick@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "quick@2x.png"; sourceTree = "<group>"; };
+		116B516C23D053B50021C41E /* bullet@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bullet@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,8 +76,21 @@
 				116B514B23D02AF30021C41E /* Assets.xcassets */,
 				116B514D23D02AF30021C41E /* LaunchScreen.storyboard */,
 				116B515023D02AF30021C41E /* Info.plist */,
+				116B515623D02D450021C41E /* Content */,
 			);
 			path = ShootTheButton;
+			sourceTree = "<group>";
+		};
+		116B515623D02D450021C41E /* Content */ = {
+			isa = PBXGroup;
+			children = (
+				116B515D23D031C10021C41E /* background@2x.png */,
+				116B516323D0375A0021C41E /* player@2x.png */,
+				116B516C23D053B50021C41E /* bullet@2x.png */,
+				116B516823D050510021C41E /* square@2x.png */,
+				116B516A23D0505C0021C41E /* quick@2x.png */,
+			);
+			path = Content;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -128,10 +151,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				116B516D23D053B50021C41E /* bullet@2x.png in Resources */,
 				116B514A23D02AF20021C41E /* Main.storyboard in Resources */,
 				116B514123D02AF20021C41E /* GameScene.sks in Resources */,
+				116B515E23D031C10021C41E /* background@2x.png in Resources */,
+				116B516923D050510021C41E /* square@2x.png in Resources */,
 				116B514C23D02AF30021C41E /* Assets.xcassets in Resources */,
 				116B514F23D02AF30021C41E /* LaunchScreen.storyboard in Resources */,
+				116B516B23D0505C0021C41E /* quick@2x.png in Resources */,
+				116B516423D0375A0021C41E /* player@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

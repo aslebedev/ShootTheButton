@@ -8,10 +8,109 @@
 
 import SpriteKit
 
-class GameScene: SKScene {
+class GameScene: SKScene, SKPhysicsContactDelegate {
     
-}
+    var player: SKSpriteNode!
+    var bullet: SKSpriteNode!
+    
+    var lastLocation: CGPoint?
+    var newLocation: CGPoint?
+    
+    let enemies = ["square", "quick"]
+    let rows = [1, 2, 3]
+    
+    var gameTimer: Timer?
+    
+    var velocityMultiplier = 1.0
+    
+    override func didMove(to view: SKView) {
+        let background = SKSpriteNode(imageNamed: "background.png")
+        background.position = CGPoint(x: 512, y: 384)
+        background.blendMode = .replace
+        background.zPosition = -1
+        addChild(background)
+        
+        player = SKSpriteNode(imageNamed: "player.png")
+        player.position = CGPoint(x: 512, y: 26)
+        addChild(player)
+        
+        physicsWorld.gravity = CGVector(dx: 0, dy: 0)
+        physicsWorld.contactDelegate = self
+        
+        gameTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(createEnemy), userInfo: nil, repeats: true)
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        guard let touch = touches.first else { return }
+        player.position = touch.location(in: self)
+    }
+    
+//    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+//        guard let touch = touches.first else { return }
+//        var location = touch.location(in: self)
+//
+//        if let lastLocation = lastLocation, let newLocation = newLocation {
+//            location.x = location.x - (newLocation.x - lastLocation.x)
+//        }
+//
+//        if location.x < 80 {
+//            location.x = 80
+//        } else if location.x > 944 {
+//            location.x = 944
+//        }
+//
+//        player.position = CGPoint(x: location.x, y: 26)
+//    }
+    
+//    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+//        lastLocation = player.position
+//    }
+    
+    override func update(_ currentTime: TimeInterval) {
+        for node in children {
+            if node.position.x < -300 || node.position.x > 1324  {
+                node.removeFromParent()
+            }
+        }
+    }
 
+    @objc func createEnemy() {
+        guard let enemy = enemies.randomElement() else { return }
+        guard let row = rows.randomElement() else { return }
+
+        var enemyLocation = CGPoint(x: 0, y: 0)
+        var velocity = CGVector(dx: 0, dy: 0)
+
+        switch row {
+        case 1:
+            enemyLocation = CGPoint(x: 100, y: Int.random(in: 200...300))
+            velocity = CGVector(dx: 500, dy: 0)
+        case 2:
+            enemyLocation = CGPoint(x: 924, y: Int.random(in: 400...500))
+            velocity = CGVector(dx: -500, dy: 0)
+        case 3:
+            enemyLocation = CGPoint(x: 100, y: Int.random(in: 600...700))
+            velocity = CGVector(dx: 500, dy: 0)
+        default:
+            enemyLocation = CGPoint(x: 100, y: Int.random(in: 600...700))
+        }
+
+        if enemy == "quick" {
+            velocity.dx *= 1.2
+        }
+        
+        let sprite = SKSpriteNode(imageNamed: enemy)
+        sprite.position = enemyLocation
+        addChild(sprite)
+
+        sprite.physicsBody = SKPhysicsBody(texture: sprite.texture!, size: sprite.size)
+        sprite.physicsBody?.velocity = velocity
+        sprite.physicsBody?.angularVelocity = 5
+        sprite.physicsBody?.linearDamping = 0
+        sprite.physicsBody?.angularDamping = 0
+        sprite.physicsBody?.categoryBitMask = 1
+    }
+}
 
 
 /*
