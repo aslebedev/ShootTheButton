@@ -7,8 +7,16 @@
 //
 
 import SpriteKit
-import GameplayKit
 
+class GameScene: SKScene {
+    
+}
+
+
+
+/*
+import GameplayKit
+ 
 class GameScene: SKScene {
     
     private var label : SKLabelNode?
@@ -87,3 +95,4 @@ class GameScene: SKScene {
         // Called before each frame is rendered
     }
 }
+*/
