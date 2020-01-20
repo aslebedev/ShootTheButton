@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		112A801023D5CBF200BCF136 /* grey@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 112A800B23D5CBF200BCF136 /* grey@2x.png */; };
+		112A801123D5CBF200BCF136 /* spool@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 112A800C23D5CBF200BCF136 /* spool@2x.png */; };
+		112A801223D5CBF200BCF136 /* green@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 112A800D23D5CBF200BCF136 /* green@2x.png */; };
+		112A801323D5CBF200BCF136 /* orange@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 112A800E23D5CBF200BCF136 /* orange@2x.png */; };
+		112A801423D5CBF200BCF136 /* brown@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 112A800F23D5CBF200BCF136 /* brown@2x.png */; };
 		116B513F23D02AF20021C41E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116B513E23D02AF20021C41E /* AppDelegate.swift */; };
 		116B514123D02AF20021C41E /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 116B514023D02AF20021C41E /* GameScene.sks */; };
 		116B514523D02AF20021C41E /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116B514423D02AF20021C41E /* GameScene.swift */; };
@@ -25,6 +30,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		112A800B23D5CBF200BCF136 /* grey@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "grey@2x.png"; sourceTree = "<group>"; };
+		112A800C23D5CBF200BCF136 /* spool@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "spool@2x.png"; sourceTree = "<group>"; };
+		112A800D23D5CBF200BCF136 /* green@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "green@2x.png"; sourceTree = "<group>"; };
+		112A800E23D5CBF200BCF136 /* orange@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "orange@2x.png"; sourceTree = "<group>"; };
+		112A800F23D5CBF200BCF136 /* brown@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "brown@2x.png"; sourceTree = "<group>"; };
 		116B513B23D02AF20021C41E /* ShootTheButton.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShootTheButton.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		116B513E23D02AF20021C41E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		116B514023D02AF20021C41E /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -98,6 +108,11 @@
 				116B516C23D053B50021C41E /* bullet@2x.png */,
 				117F4EA123D1BA7C0005DABC /* square@2x.png */,
 				117F4EA323D1BA870005DABC /* quick@2x.png */,
+				112A800F23D5CBF200BCF136 /* brown@2x.png */,
+				112A800D23D5CBF200BCF136 /* green@2x.png */,
+				112A800B23D5CBF200BCF136 /* grey@2x.png */,
+				112A800E23D5CBF200BCF136 /* orange@2x.png */,
+				112A800C23D5CBF200BCF136 /* spool@2x.png */,
 			);
 			path = Content;
 			sourceTree = "<group>";
@@ -162,13 +177,18 @@
 			files = (
 				116B516D23D053B50021C41E /* bullet@2x.png in Resources */,
 				116B514A23D02AF20021C41E /* Main.storyboard in Resources */,
+				112A801423D5CBF200BCF136 /* brown@2x.png in Resources */,
 				117F4E9323D196EB0005DABC /* explosion.sks in Resources */,
+				112A801023D5CBF200BCF136 /* grey@2x.png in Resources */,
 				116B514123D02AF20021C41E /* GameScene.sks in Resources */,
 				116B515E23D031C10021C41E /* background@2x.png in Resources */,
+				112A801323D5CBF200BCF136 /* orange@2x.png in Resources */,
+				112A801223D5CBF200BCF136 /* green@2x.png in Resources */,
 				117F4EA823D1BFB80005DABC /* reload@2x.png in Resources */,
 				117F4EA423D1BA870005DABC /* quick@2x.png in Resources */,
 				117F4EA223D1BA7C0005DABC /* square@2x.png in Resources */,
 				117F4E9023D196AA0005DABC /* spark.png in Resources */,
+				112A801123D5CBF200BCF136 /* spool@2x.png in Resources */,
 				116B514C23D02AF30021C41E /* Assets.xcassets in Resources */,
 				117F4E9E23D1ABF70005DABC /* player@3x.png in Resources */,
 				116B514F23D02AF30021C41E /* LaunchScreen.storyboard in Resources */,

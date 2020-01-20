@@ -20,7 +20,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var lastLocation: CGPoint?
     var newLocation: CGPoint?
     
-    let enemies = ["square", "quick"]
+    let enemies = ["quick", "spool", "square", "brown", "green", "grey", "orange"]
     var bulletsLeft = 60
     var score = 0 {
         didSet {
@@ -73,18 +73,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         player = SKSpriteNode(imageNamed: "player.png")
         player.position = CGPoint(x: 512, y: 26)
         addChild(player)
-
+        
         score = 0
         bulletQuantity = 10
-        timeLeft = 60
+        timeLeft = 50
         
+        gameTimer = Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(countTime), userInfo: nil, repeats: true)
         enemyTimer = Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(createEnemy), userInfo: nil, repeats: true)
-        velocityTimer = Timer.scheduledTimer(withTimeInterval: 5, repeats: true) { _ in
-            self.velocityMultiplier *= 1.05
+        velocityTimer = Timer.scheduledTimer(withTimeInterval: 5, repeats: true) { [weak self] _ in
+            self?.velocityMultiplier *= 1.05
         }
-        gameTimer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
-            self.timeLeft -= 1
-        }
+
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -105,16 +104,21 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     override func update(_ currentTime: TimeInterval) {
         for node in children {
-            if node.position.x < -300 || node.position.x > 1324 || node.position.x < -300 || node.position.y > 1000{
+            if node.position.x < -300 || node.position.x > 1324 || node.position.x < -300 || node.position.y > 1000 {
                 node.removeFromParent()
             }
         }
+
+    }
+
+    @objc func countTime() {
+        timeLeft -= 1
         
-        if timeLeft <= 0 {
+        if timeLeft<=0 {
             gameOver()
         }
     }
-
+    
     @objc func createEnemy() {
         guard let enemy = enemies.randomElement() else { return }
         let row = Int.random(in: 1...3)
@@ -141,7 +145,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
         
         let sprite = SKSpriteNode(imageNamed: enemy)
-        sprite.name = "enemy"
+        sprite.name = enemy
         sprite.position = enemyLocation
         addChild(sprite)
 
@@ -154,8 +158,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func shoot() {
-        if bulletQuantity == 0 && bulletsLeft == 0 {
-            gameOver()
+        if isGameOver {
+            return
+        }
+        
+        if bulletQuantity == 0 {
             return
         }
         
@@ -164,13 +171,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         bullet.position = player.position
         addChild(bullet)
 
-        bulletQuantity -= 1
-        
         bullet.physicsBody = SKPhysicsBody(texture: bullet.texture!, size: bullet.size)
         bullet.physicsBody?.categoryBitMask = 1
         bullet.physicsBody?.contactTestBitMask = 1
         bullet.physicsBody?.velocity = CGVector(dx: 0, dy: 500)
         bullet.physicsBody?.linearDamping = 0
+        
+        bulletQuantity -= 1
+        
+        if bulletQuantity == 0 && bulletsLeft == 0 {
+            gameOver()
+        }
     }
     
     func gotHit(bullet: SKNode, enemy: SKNode) {
@@ -180,9 +191,21 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
         bullet.removeFromParent()
         enemy.removeFromParent()
+        
+        if enemy.name == "quick" {
+            score += 10
+        } else if enemy.name == "spool" {
+            score -= 5
+        } else {
+            score += 5
+        }
     }
     
     func reload() {
+        if isGameOver {
+            return
+        }
+        
         if bulletsLeft <= 0 {
             return
         }
@@ -199,8 +222,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         gameTimer?.invalidate()
         
         let gameOverLabel = SKLabelNode(fontNamed: "Papyrus")
-        gameOverLabel.fontSize = 60
+        gameOverLabel.alpha = 0.0
+        gameOverLabel.fontSize = 78
         gameOverLabel.position = CGPoint(x: 512, y: 384)
+        gameOverLabel.zPosition = 4
+        gameOverLabel.text = "GAME OVER"
+        gameOverLabel.run(SKAction.fadeIn(withDuration: 1))
         addChild(gameOverLabel)
     }
     

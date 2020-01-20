@@ -24,6 +24,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="esm-kj-RBg">
                                 <rect key="frame" x="819" y="523" width="200" height="200"/>
                                 <state key="normal" image="reload.png"/>
+                                <connections>
+                                    <action selector="reloadTapped:" destination="BV1-FR-VrT" eventType="touchUpInside" id="ndr-AG-iqb"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
